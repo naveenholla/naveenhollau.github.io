@@ -269,7 +269,7 @@
         <div class="container">
             <header id="about">
                 <h1>Naveen Holla</h1>
-                <div class="subtitle">Software Designer | Cloud Native Development | Distributed Systems</div>
+                <div class="subtitle">Software Developer | Cloud Native Development | Distributed Systems</div>
                 <div class="contact-info">
                     <a href="mailto:naveenhollau@gmail.com">📧 naveenhollau@gmail.com</a>
                     <a href="tel:+919738745055">📱 +91 9738745055</a>
@@ -282,8 +282,19 @@
                 <h2>Professional Experience</h2>
                 
                 <div class="experience-item">
+                    <h3>Cloud Developer III | HPE Aruba Networking</h3>
+                    <div class="duration">April 2023 - Present · Bengaluru, Karnataka, India · Hybrid</div>
+                    <ul>
+                        <li>Led development of a versatile IoT location tracking solution, architecting a high-performance data pipeline processing more than million messages per minute for more than 200k devices.</li>
+                        <li>Leveraged advanced technologies (Spring Boot 3, Kafka, Golang, MQTT, gRPC) and AWS services to create a scalable, hybrid cloud architecture with optimized data routing and processing.</li>
+                        <li>Engineered innovative solutions for signal noise reduction and integrated Bluetooth beacons and GPS-enabled access points, improving way-finding and asset tracking capabilities.</li>
+                        <li>Implemented a Kubernetes-based, cost-effective scalable solution and developed a comprehensive monitoring pipeline using Prometheus and Grafana, significantly reducing troubleshooting time and enhancing system visibility.</li>
+                    </ul>
+                </div>
+    
+                <div class="experience-item">
                     <h3>Software Designer V | Micro Focus</h3>
-                    <div class="duration">March 2022 - Present</div>
+                    <div class="duration">March 2022 - March 2023</div>
                     <ul>
                         <li>Integrated Hyperscale Monitoring with Performance Trouble-shooter enabling dynamic graph creation</li>
                         <li>Designed and implemented Go-based real-time thresholding and alerting system</li>
@@ -291,7 +302,7 @@
                         <li>Architected secured service monitors and Grafana dashboards</li>
                     </ul>
                 </div>
-
+    
                 <div class="experience-item">
                     <h3>Software Designer II | Micro Focus</h3>
                     <div class="duration">August 2019 - February 2022</div>
@@ -302,7 +313,7 @@
                         <li>Architected Golang-based framework for Hyperscale Push Based Collectors</li>
                     </ul>
                 </div>
-
+    
                 <div class="experience-item">
                     <h3>Systems Software Engineer | Micro Focus</h3>
                     <div class="duration">August 2017 - August 2019</div>
@@ -322,17 +333,19 @@
                         <h4>Programming Languages</h4>
                         <ul>
                             <li>Go</li>
-                            <li>C</li>
+                            <li>Java</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
                         <h4>Cloud & Infrastructure</h4>
                         <ul>
+                            <li>Spring Boot 3</li>
                             <li>AWS</li>
                             <li>Azure</li>
                             <li>Kubernetes</li>
                             <li>OpenStack</li>
+
                         </ul>
                     </div>
 
@@ -388,97 +401,7 @@
                 behavior: 'smooth'
             });
         }
-        // New PDF download function
-        function downloadPDF() {
-            // Get the resume content element
-            const element = document.getElementById('resume-content');
-            
-            // Show loading message
-            const loadingMessage = document.createElement('div');
-            loadingMessage.style.position = 'fixed';
-            loadingMessage.style.top = '50%';
-            loadingMessage.style.left = '50%';
-            loadingMessage.style.transform = 'translate(-50%, -50%)';
-            loadingMessage.style.background = 'rgba(0, 0, 0, 0.8)';
-            loadingMessage.style.color = 'white';
-            loadingMessage.style.padding = '20px';
-            loadingMessage.style.borderRadius = '10px';
-            loadingMessage.style.zIndex = '9999';
-            loadingMessage.textContent = 'Generating PDF...';
-            document.body.appendChild(loadingMessage);
 
-            // Configure PDF options
-            const opt = {
-                margin: [10, 10],
-                filename: 'naveen-holla-resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2,
-                    useCORS: true,
-                    logging: false
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait'
-                }
-            };
-
-            // Generate PDF
-            html2pdf().set(opt).from(element).save()
-                .then(() => {
-                    // Remove loading message
-                    document.body.removeChild(loadingMessage);
-                    
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.style.position = 'fixed';
-                    successMessage.style.bottom = '20px';
-                    successMessage.style.left = '50%';
-                    successMessage.style.transform = 'translateX(-50%)';
-                    successMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-                    successMessage.style.color = 'white';
-                    successMessage.style.padding = '10px 20px';
-                    successMessage.style.borderRadius = '5px';
-                    successMessage.style.zIndex = '1000';
-                    successMessage.textContent = 'PDF downloaded successfully!';
-                    
-                    document.body.appendChild(successMessage);
-                    
-                    setTimeout(() => {
-                        successMessage.style.opacity = '0';
-                        successMessage.style.transition = 'opacity 0.5s ease';
-                        setTimeout(() => document.body.removeChild(successMessage), 500);
-                    }, 2000);
-                })
-                .catch(error => {
-                    // Remove loading message
-                    document.body.removeChild(loadingMessage);
-                    
-                    // Show error message
-                    const errorMessage = document.createElement('div');
-                    errorMessage.style.position = 'fixed';
-                    errorMessage.style.bottom = '20px';
-                    errorMessage.style.left = '50%';
-                    errorMessage.style.transform = 'translateX(-50%)';
-                    errorMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
-                    errorMessage.style.color = 'white';
-                    errorMessage.style.padding = '10px 20px';
-                    errorMessage.style.borderRadius = '5px';
-                    errorMessage.style.zIndex = '1000';
-                    errorMessage.textContent = 'Error generating PDF. Please try again.';
-                    
-                    document.body.appendChild(errorMessage);
-                    
-                    setTimeout(() => {
-                        errorMessage.style.opacity = '0';
-                        errorMessage.style.transition = 'opacity 0.5s ease';
-                        setTimeout(() => document.body.removeChild(errorMessage), 500);
-                    }, 2000);
-                    
-                    console.error('PDF generation error:', error);
-                });
-        }
     </script>
 </body>
 </html>
